@@ -2,6 +2,9 @@ package firstexamples;
 
 //import java.lang.System;
 
+import java.io.FileReader;
+import java.util.Scanner;
+
 import static java.lang.System.out;
 
 public class Example {
@@ -12,7 +15,7 @@ public class Example {
     return result;
   }
 
-  public static void main(String[] args) {
+  public static void main(String[] args) throws Exception {
 //    java.lang.System.out.println("Hello Java World!");
     System.out.println("Hello Java World!");
     out.println("Hello Java World!");
@@ -61,5 +64,12 @@ public class Example {
 
     out.println("one plus two is " + Example.add(1, 2));
     out.println("3, 4 is " + add(3, 4));
+
+//    Scanner input = new Scanner(System.in);
+    Scanner input = new Scanner(new FileReader("text.txt"));
+    while (input.hasNextLine()) {
+      String line = input.nextLine();
+      out.println("I read: " + line);
+    }
   }
 }
