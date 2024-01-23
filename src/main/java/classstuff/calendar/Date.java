@@ -92,9 +92,10 @@ public class Date {
     return days;
   }
 
-  public static boolean isPlausibleDate(Date d) {
-    return isPlausibleDate(d.day, d.month, d.year);
-  }
+  // VERIFY BEFORE creating the date, therefore this method isn't useful
+//  public static boolean isPlausibleDate(Date d) {
+//    return isPlausibleDate(d.day, d.month, d.year);
+//  }
 
   // do these numbers form a plausible date?
   public static boolean isPlausibleDate(int day, Month month, int year) {
@@ -106,13 +107,13 @@ public class Date {
     return m.name();
   }
 
-  //  public static int getDayOfWeek(Date d) {
+//  public static int getDayOfWeek(Date d) {
 // "instance" method, no "static", first argument is of the enclosing type, and is called "this"
 //  public /*static*/ int getDayOfWeek(Date this) { // this is identical to the following
-  public /*static*/ int getDayOfWeek() { // Date this is *implicit* here.
+//  public /*static*/ int getDayOfWeek() { // Date this is *implicit* here.
 //    return getDayOfWeek(d.day, d.month, d.year);
 //    return getDayOfWeek(this.day, this.month, this.year);
-    int day = 1000;
+//    int day = 1000;
     // UNQUALIFIED IDENTIFIER: month
     // - look for local variable (not found, but day would be found)
     // - if not found, look for instance field of the same name, if found apply "this" prefix
@@ -120,6 +121,10 @@ public class Date {
     // - if no instance field, look for a static field, and use the Classname prefix
     //   -- e.g. getDayOfWeek here is actually Date.getDayOfWeek
 //    return Date.getDayOfWeek(this.day, month, year);
+//    return getDayOfWeek(this.day, month, year); // equivalent to above with Date. prefix
+//  }
+
+  public int getDayOfWeek() { // Date this is *implicit* here.
     return getDayOfWeek(this.day, month, year); // equivalent to above with Date. prefix
   }
 
@@ -139,8 +144,8 @@ public class Date {
     return "Date: " + getDayName(getDayOfWeek(day, month, year)) + " day is " + day + " month is " + month + " year is " + year;
   }
 
-  public static String getAsText(Date d) {
-    return /*Date.*/getAsText(d.day, d.month, d.year);
+  public String getAsText(Date this) {
+    return /*Date.*/getAsText(this.day, this.month, this.year);
   }
 }
 
@@ -166,7 +171,8 @@ class UseDates {
 //
 //    System.out.println("day of myBirth is " + myBirth.day);
     System.out.println("day of myBirth is " + myBirth.getDay());
-    System.out.println("myBirth looks like: " + Date.getAsText(myBirth));
+//    System.out.println("myBirth looks like: " + Date.getAsText(myBirth));
+    System.out.println("myBirth looks like: " + myBirth.getAsText());
 //    System.out.println("myBirth was on a " + Date.getDayOfWeek(myBirth));
     System.out.println("myBirth was on a " + myBirth.getDayOfWeek());
   }
