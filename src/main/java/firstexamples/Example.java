@@ -3,12 +3,14 @@ package firstexamples;
 //import java.lang.System;
 
 import java.io.FileReader;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.Scanner;
 
 import static java.lang.System.out;
 
 public class Example {
-
   public static int add(int a, int b) {
     int result = a + b;
     out.println("I added " + a + " and " + b + " to get " + result) ;
@@ -65,11 +67,29 @@ public class Example {
     out.println("one plus two is " + Example.add(1, 2));
     out.println("3, 4 is " + add(3, 4));
 
-//    Scanner input = new Scanner(System.in);
-    Scanner input = new Scanner(new FileReader("text.txt"));
-    while (input.hasNextLine()) {
-      String line = input.nextLine();
-      out.println("I read: " + line);
-    }
+//    out.print("Enter a line: ");
+//    out.flush();
+    Scanner input = new Scanner(System.in);
+//    Scanner input = new Scanner(new FileReader("text.txt"));
+//    while (input.hasNextLine()) {
+//      String line = input.nextLine();
+//      out.println("I read: " + line);
+//    }
+
+    double f1 = input.nextFloat();
+    out.println("you said " + f1);
+    double f2 = input.nextFloat();
+    out.println("you said " + f2);
+
+    String numText = "1234";
+    int num = Integer.parseInt(numText);
+
+
+    LocalDateTime now = LocalDateTime.now();
+    out.printf("This is a number %d, this is a floating number %,7.3f this is text %s\n",
+        99, Math.PI, LocalTime.now());
+
+
+
   }
 }
