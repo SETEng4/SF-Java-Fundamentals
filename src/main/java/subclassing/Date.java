@@ -91,11 +91,15 @@ public class Date /*extends java.lang.Object*/ {
 
   public int getDayOfWeek() { // Date this is *implicit* here.
     int m = month.getValue(); // 1 -> 12
+    int y = this.year;
     if (m <= 2) {
       m += 12;
-      year -= 1;
+      // SIMON SCREWED UP HERE BADLY
+      // -- we MUST NOT mutate this object just for a temporary calculation
+//      year -= 1;
+      y -= 1;
     }
-    return (day + (13 * (m + 1) / 5) + year + (year / 4) - (year / 100) + (year / 400)) % 7;
+    return (day + (13 * (m + 1) / 5) + y + (y / 4) - (y / 100) + (y / 400)) % 7;
   }
 
   public String toString() {

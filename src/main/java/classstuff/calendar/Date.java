@@ -175,5 +175,7 @@ class UseDates {
     System.out.println("myBirth looks like: " + myBirth.getAsText());
 //    System.out.println("myBirth was on a " + Date.getDayOfWeek(myBirth));
     System.out.println("myBirth was on a " + myBirth.getDayOfWeek());
+
+
   }
 }
