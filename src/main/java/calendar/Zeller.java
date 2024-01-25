@@ -17,7 +17,7 @@ public class Zeller {
    * @param year
    * @return this returns a DayOfWeek object representing Monday through Sunday
    */
-  public static DayOfWeek dayOfWeek(int dayOfMonth, Month month, int year) {
+  /*public*/ static DayOfWeek dayOfWeek(int dayOfMonth, Month month, int year) {
     int m = month.getValue();
     if (m <= 2) { // was < 2 that was the bug!!!
       year--;
